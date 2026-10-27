@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#090a0b">
+  <title>Rivavr Memory Lab — Analog photo editor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="#" aria-label="Rivavr Memory Lab home"><span class="brand-mark">R</span><span>RIVAVR MEMORY LAB</span></a><div class="project"><i></i><span id="fileStatus">NO IMAGE LOADED</span></div><div class="top-actions"><label class="text-btn open-image" for="imageInput">Open image <span>↗</span></label><button class="text-btn" id="resetBtn" disabled>Reset</button><button class="download-btn" id="downloadPng" disabled>PNG <span>↓</span></button><button class="download-btn primary" id="downloadJpg" disabled>JPEG <span>↓</span></button></div></header>
+  <main>
+    <section class="workspace-head"><h1>Photo processing</h1><p>Full-resolution preview <b>·</b> Image stays on this device</p></section>
+    <section class="lab-layout">
+      <aside class="controls-panel">
+        <div class="control-header"><div><h2>Parameters</h2><p class="preset-current" id="activePresetName">Family snapshot <span>1998</span></p></div><span class="control-doodle">⌘</span></div>
+        <p class="control-description" id="presetDescription">Warm flash, soft highlights, a little red glow around the edges.</p>
+        <div class="control-list" id="controlList"></div>
+      </aside>
+      <div class="stage-column">
+        <section class="photo-stage" id="photoStage" aria-label="Photo preview">
+          <div class="empty-state" id="emptyState"><div class="empty-icon">▧</div><h2>Select a source image</h2><p>JPEG · PNG · WEBP</p><label class="upload-button" for="imageInput">Open image <span>↗</span></label><small>LOCAL FILE · FULL RESOLUTION</small></div>
+          <div class="image-frame hidden" id="imageFrame"><canvas id="processedCanvas"></canvas><canvas id="originalCanvas"></canvas><div class="wipe-line hidden" id="wipeLine"></div><button class="compare-toggle" id="compareBtn" disabled>HOLD TO SEE ORIGINAL</button><div class="photo-caption"><span id="captionName">UNTITLED · 1 PRINT</span><span>RIVAVR MEMORY LAB</span></div></div>
+          <label class="stage-upload" for="imageInput" id="stageUpload">＋ Change photo</label>
+          <button class="focus-toggle" id="focusToggle" type="button" aria-pressed="false" aria-label="Show photo full screen" disabled><span>FULL SCREEN</span></button>
+          <input id="imageInput" type="file" accept="image/*" hidden>
+        </section>
+        <div class="stage-footer"><span><i class="live-dot"></i><span id="previewStatus">YOUR PHOTO IS READY WHEN YOU ARE</span></span><button class="before-after" id="viewOriginal" disabled>View original <span>↗</span></button></div>
+      </div>
+      <section class="presets-section"><div class="section-title"><h2>Image profiles</h2><span class="preset-count">6 profiles</span></div>
+        <div class="preset-grid" id="presetGrid">
+          <button class="preset-card active" data-preset="family"><span class="print-thumb" aria-hidden="true"></span><span class="preset-copy"><b>Family snapshot</b><small>1998 · indoor flash</small></span></button>
+          <button class="preset-card" data-preset="school"><span class="print-thumb" aria-hidden="true"></span><span class="preset-copy"><b>School portrait</b><small>Soft studio · 1994</small></span></button>
+          <button class="preset-card" data-preset="silver"><span class="print-thumb" aria-hidden="true"></span><span class="preset-copy"><b>Silver print</b><small>Monochrome</small></span></button>
+          <button class="preset-card" data-preset="disposable"><span class="print-thumb" aria-hidden="true"></span><span class="preset-copy"><b>Disposable camera</b><small>One take · 2001</small></span></button>
+          <button class="preset-card" data-preset="album"><span class="print-thumb" aria-hidden="true"></span><span class="preset-copy"><b>Old album scan</b><small>Found in a drawer</small></span></button>
+          <button class="preset-card" data-preset="digital"><span class="print-thumb" aria-hidden="true"></span><span class="preset-copy"><b>Early digital</b><small>Coolpix · 2003</small></span></button>
+        </div>
+      </section>
+    </section>
+    <footer><span>RIVAVR MEMORY LAB <i>[ LOCAL ]</i> ANALOG IMAGE PROCESSOR</span><span>NO IMAGE UPLOAD · ON-DEVICE RENDER</span></footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
