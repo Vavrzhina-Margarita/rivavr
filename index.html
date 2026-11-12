@@ -26,15 +26,12 @@
     <section class="lab-layout">
       <aside class="controls-panel">
         <section class="presets-section" aria-label="Choose a photo style">
-          <div class="section-title"><h2>Photo style</h2></div>
-          <div class="preset-grid" id="presetGrid">
-            <button class="preset-card active" data-preset="family"><span class="preset-copy"><b>Family snapshot</b></span></button>
-            <button class="preset-card" data-preset="school"><span class="preset-copy"><b>School portrait</b></span></button>
-            <button class="preset-card" data-preset="silver"><span class="preset-copy"><b>Silver print</b></span></button>
-            <button class="preset-card" data-preset="disposable"><span class="preset-copy"><b>Disposable camera</b></span></button>
-            <button class="preset-card" data-preset="album"><span class="preset-copy"><b>Old album scan</b></span></button>
-            <button class="preset-card" data-preset="digital"><span class="preset-copy"><b>Early digital</b></span></button>
+          <div class="section-title"><h2>Looks</h2></div>
+          <div class="look-tabs" role="tablist" aria-label="Look collection">
+            <button class="look-tab active" id="filmTab" type="button" role="tab" aria-selected="true">Film</button>
+            <button class="look-tab" id="effectsTab" type="button" role="tab" aria-selected="false">Effects</button>
           </div>
+          <div class="preset-grid" id="presetGrid"></div>
         </section>
         <div class="control-header"><div><h2>Adjust</h2><p class="preset-current" id="activePresetName">Family snapshot <span>1998</span></p></div></div>
         <p class="control-description" id="presetDescription">Warm indoor flash, soft highlights, and mellow family-album color.</p>
@@ -54,6 +51,7 @@
             <div class="wipe-line hidden" id="wipeLine"></div>
             <button class="compare-toggle" id="compareBtn" disabled>Hold to see original</button>
           </div>
+          <div class="spotlight-tip hidden" id="spotlightTip">Click the subject to place the light</div>
           <label class="stage-upload hidden" for="imageInput" id="stageUpload">Change photo</label>
           <button class="focus-toggle" id="focusToggle" type="button" aria-pressed="false" aria-label="Show photo full screen" disabled><span>Full screen</span> <i>↗</i></button>
           <input id="imageInput" type="file" accept="image/*" hidden>
